@@ -16,9 +16,7 @@
                     "winPercentage": 20
                 }, {
                     "month": 2,
-                    "winPercentage": 90
-                }, {
-                    "month": 3,
+                    "winPercentage": 90 Error: source does not appear to be markup."month": 3,
                     "winPercentage": 20
                 }, {
                     "month": 4,
@@ -117,28 +115,17 @@
             });
 
             //append text elements
-            var textMaker = svg.selectAll("text")
-              .data(winPercentageByMonth)
-              .enter()
-              .append("text");
+            var textMaker = svg.selectAll("text").data(winPercentageByMonth).enter().append("text");
 
-            var textAttributes = textMaker
-              .attr("x", function (d) {
+            var textAttributes = textMaker.attr("x", function(d) {
                 return d.month * 15;
-              })
-              .attr("y", function (d) {
+            }).attr("y", function(d) {
                 return h - d.winPercentage;
-              })
-              .text(function (d) {
-                if(d.winPercentage >= 60){
-                  return d.winPercentage;
+            }).text(function(d) {
+                if (d.winPercentage >= 60) {
+                    return d.winPercentage;
                 }
-              })
-              .attr("font-family", "sans-serif")
-              .attr("font-size", "12px")
-              .attr("z-index", ".1")
-              .attr("fill","black");
-
+            }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("z-index", ".1").attr("fill", "black");
         </script>
     </body>
 </html>
